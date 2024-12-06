@@ -2,26 +2,79 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
+
 header {
-    background: #333;
-    color: white;
-    padding: 10px 20px;
-}
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-section {
-    padding: 20px;
-}
-.project {
-    margin-bottom: 20px;
-}
-footer {
-    background: #333;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
     text-align: center;
-    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 1rem;
+    margin: 1rem 0;
+    min-height: auto;
+}
+
+section h2 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+section p {
+    margin: 0;
+    padding: 0;
+}
+
+section#home {
+    background-color: #f9f9f9;
+}
+
+section#projects {
+    background-color: #f2f2f2;
+}
+
+.project {
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.project p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.project a {
+    text-decoration: none;
+    color: #333;
+    background-color: #f2f2f2;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
 }
