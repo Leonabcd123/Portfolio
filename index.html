@@ -17,10 +17,10 @@
         </nav>
     </header>
     <main>
-        <section id="home">
-            <h2>Welcome!</h2>
-            <p>Hi, I'm Harel. Here are my C++ projects!</p>
-        </section>
+		<section id="home">
+		<h2>Welcome!</h2>
+		<p>Hi, I'm <span class="name">Harel.</span>Here are my C++ projects!</p>
+		</section>
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
@@ -71,5 +71,36 @@
     <footer>
         <p>© 2024 Harel</p>
     </footer>
+<script>
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                const offset = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - offset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const nameElement = document.querySelector('.name');
+    
+    // Set a timer to add the 'typing-done' class after the typing animation completes
+    setTimeout(() => {
+        nameElement.classList.add('typing-done');
+    }, 4000); // Match the duration of the typing animation (4s)
+});
+</script>
+
 </body>
 </html>
