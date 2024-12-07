@@ -2,7 +2,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #1e90ff, #ff7f50, #6a5acd);
+    background-size: 300% 300%;
+    animation: gradientAnimation 6s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header {
@@ -13,23 +27,81 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+	transform: translateY(-100%);
+    animation: slideIn 0.5s ease-out forwards;
 }
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.name {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #333;
+    width: 0;
+    vertical-align: top;
+    animation: typing 2s steps(5) 0s forwards, blink 0.75s step-end infinite;
+}
+
+
+@keyframes typing {
+    to {
+        width: 5ch;
+    }
+}
+
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+
+.name.typing-done {
+    border-color: transparent;
+    animation: typing 2s steps(5) 0s forwards;
+}
+
+
+
+
 
 nav a {
     color: #fff;
     margin: 0 1rem;
     text-decoration: none;
     font-weight: bold;
+	transition: color 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #ff7f50;
+	text-decoration: underline;
 }
 
 section {
+	scroll-margin-top: 5rem;
     padding: 1rem;
     margin: 1rem 0;
     min-height: auto;
+	opacity: 0;
+    animation: fadeIn 1s forwards;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 section h2 {
@@ -42,20 +114,18 @@ section p {
     padding: 0;
 }
 
-section#home {
-    background-color: #f9f9f9;
-}
-
-section#projects {
-    background-color: #f2f2f2;
-}
-
 .project {
     margin-bottom: 0.5rem;
     padding: 1rem;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project p {
@@ -70,11 +140,51 @@ section#projects {
     background-color: #f2f2f2;
     padding: 0.5rem;
     border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.project a:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+#contact {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.6s ease forwards;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#contact p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 1rem;
+}
+
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 footer {
     text-align: center;
     padding: 1rem;
     background-color: #333;
     color: #fff;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
