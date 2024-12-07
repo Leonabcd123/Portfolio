@@ -38,43 +38,6 @@ header {
 }
 
 
-.name {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #333;
-    width: 0;
-    vertical-align: top;
-    animation: typing 2s steps(5) 0s forwards, blink 0.75s step-end infinite;
-}
-
-
-@keyframes typing {
-    to {
-        width: 5ch;
-    }
-}
-
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-    100% {
-        border-color: transparent;
-    }
-}
-
-
-.name.typing-done {
-    border-color: transparent;
-    animation: typing 2s steps(5) 0s forwards;
-}
-
-
-
-
-
 nav a {
     color: #fff;
     margin: 0 1rem;
