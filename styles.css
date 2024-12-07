@@ -27,36 +27,30 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-	transform: translateY(-100%);
-    animation: slideIn 0.5s ease-out forwards;
 }
-
-@keyframes slideIn {
-    to {
-        transform: translateY(0);
-    }
-}
-
 
 nav a {
     color: #fff;
     margin: 0 1rem;
     text-decoration: none;
     font-weight: bold;
-	transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+nav a i {
+    margin-right: 0.5rem;
 }
 
 nav a:hover {
     color: #ff7f50;
-	text-decoration: underline;
 }
 
 section {
-	scroll-margin-top: 5rem;
+    scroll-margin-top: 5rem;
     padding: 1rem;
     margin: 1rem 0;
     min-height: auto;
-	opacity: 0;
+    opacity: 0;
     animation: fadeIn 1s forwards;
     transition: opacity 0.5s ease;
 }
@@ -72,29 +66,23 @@ section h2 {
     padding-bottom: 0.5rem;
 }
 
-section p {
-    margin: 0;
-    padding: 0;
-}
-
 .project {
     margin-bottom: 0.5rem;
     padding: 1rem;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project h3 i {
+    margin-right: 0.5rem;
+    color: #1e90ff;
 }
 
 .project:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.project p {
-    margin: 0;
-    padding: 0;
-    margin-bottom: 1rem;
 }
 
 .project a {
@@ -111,43 +99,9 @@ section p {
     color: #fff;
 }
 
-#contact {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideUp 0.6s ease forwards;
-}
-
-#contact h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-#contact p {
-    font-size: 1.2rem;
-    color: #333;
-    margin-top: 1rem;
-}
-
-
-@keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
 footer {
     text-align: center;
     padding: 1rem;
     background-color: #333;
     color: #fff;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
 }
