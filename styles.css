@@ -51,15 +51,26 @@ section {
     margin: 1rem 0;
     min-height: auto;
     opacity: 0;
-    animation: fadeIn 1s forwards;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+section.visible {
+    opacity: 1;
 }
+
+
+.fade-text {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s;
+}
+
+.fade-text.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease-in-out, visibility 0s linear 0s;
+}
+
 
 section h2 {
     margin: 0;
