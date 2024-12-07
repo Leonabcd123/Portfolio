@@ -23,7 +23,7 @@
             <p>Hi, I'm Harel. Here are my C++ projects!</p>
         </section>
         <section id="projects">
-            <h2>My Projects</h2>
+            <h2 class="fade-text">My Projects</h2>
             <div class="project">
                 <h3><i class="fas fa-dice"></i> Blackjack</h3>
                 <p>Description: A game designed to mimic Blackjack.</p>
@@ -77,24 +77,66 @@
     <footer>
         <p>© 2024 Harel</p>
     </footer>
-    <script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = document.querySelectorAll('section');
+        const projectsHeader = document.querySelector('#projects h2');
+
+        function checkVisibility() {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    section.classList.add('visible');
+                } else {
+                    section.classList.remove('visible');
+                }
+            });
+
+            const projectsRect = projectsHeader.getBoundingClientRect();
+            if (projectsRect.top < window.innerHeight && projectsRect.bottom >= 0) {
+                projectsHeader.classList.add('visible');
+            } else {
+                projectsHeader.classList.remove('visible');
+            }
+        }
+
+        checkVisibility();
+
+        window.addEventListener('scroll', checkVisibility);
+
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    const offset = document.querySelector('header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - offset;
-
+                
+                if (targetId === '#home') {
                     window.scrollTo({
-                        top: targetPosition,
+                        top: 0,
                         behavior: 'smooth'
                     });
+                } else {
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        const offset = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - offset;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
-    </script>
+    });
+</script>
+
+
+
+
+
 </body>
 </html>
