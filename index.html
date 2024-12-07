@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My C++ Projects</title>
+    <meta name="description" content="Showcasing my C++ projects including Blackjack, Finance Management, Weather Logger, and more.">
+    <meta name="keywords" content="C++, projects, programming, blackjack, finance management, weather logger">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -67,7 +69,7 @@
         </section>
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a 12-year-old C++ enthusiast who likes to code.</p>
+            <p>I am a 12-year-old C++ enthusiast who likes to code and learn new technologies every day.</p>
         </section>
         <section id="contact">
             <h2>Contact</h2>
@@ -75,68 +77,65 @@
         </section>
     </main>
     <footer>
-        <p>© 2024 Harel</p>
+        <p>© 2024 Harel | Follow me on <a href="https://github.com/Leonabcd123" target="_blank" rel="noopener noreferrer">GitHub</a></p>
     </footer>
 
-<script>
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('section');
-        const projectsHeader = document.querySelector('#projects h2');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    const projectsHeader = document.querySelector('#projects h2');
 
-        function checkVisibility() {
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    section.classList.add('visible');
-                } else {
-                    section.classList.remove('visible');
-                }
-            });
-
-            const projectsRect = projectsHeader.getBoundingClientRect();
-            if (projectsRect.top < window.innerHeight && projectsRect.bottom >= 0) {
-                projectsHeader.classList.add('visible');
+    function checkVisibility() {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                section.classList.add('visible');
             } else {
-                projectsHeader.classList.remove('visible');
+                section.classList.remove('visible');
             }
+        });
+
+        const projectsRect = projectsHeader.getBoundingClientRect();
+        if (projectsRect.top < window.innerHeight && projectsRect.bottom >= 0) {
+            projectsHeader.classList.add('visible');
+        } else {
+            projectsHeader.classList.remove('visible');
         }
+    }
 
-        checkVisibility();
+    checkVisibility();
 
-        window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('scroll', checkVisibility);
 
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                
-                if (targetId === '#home') {
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            
+            if (targetId === '#home') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const offset = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - offset;
+
                     window.scrollTo({
-                        top: 0,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
-                } else {
-                    const targetElement = document.querySelector(targetId);
-
-                    if (targetElement) {
-                        const offset = document.querySelector('header').offsetHeight;
-                        const targetPosition = targetElement.offsetTop - offset;
-
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
                 }
-            });
+            }
         });
     });
+});
+
 </script>
-
-
-
-
-
 </body>
 </html>
